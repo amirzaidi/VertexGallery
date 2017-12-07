@@ -1,3 +1,4 @@
+ifneq ($(TARGET_HAS_LOW_RAM), true)
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -37,7 +38,7 @@ LOCAL_PACKAGE_NAME := SnapdragonGallery
 
 LOCAL_PRIVILEGED_MODULE := true
 
-LOCAL_OVERRIDES_PACKAGES := Gallery Gallery3D GalleryNew3D Gallery2
+LOCAL_OVERRIDES_PACKAGES := Gallery Gallery3D GalleryNew3D #Gallery2
 
 LOCAL_SDK_VERSION := current
 
@@ -57,4 +58,5 @@ ifeq ($(strip $(LOCAL_PACKAGE_OVERRIDES)),)
 # Use the following include to make gallery test apk
 include $(call all-makefiles-under, $(LOCAL_PATH))
 
+endif
 endif
