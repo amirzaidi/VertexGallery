@@ -37,7 +37,6 @@ public class AlbumSetSlotRenderer extends AbstractSlotRenderer {
     private final int mPlaceholderColor;
 
     private final ColorTexture mWaitLoadingTexture;
-    private final ResourceTexture mCameraOverlay;
     private final AbstractGalleryActivity mActivity;
     private final SelectionManager mSelectionManager;
     protected final LabelSpec mLabelSpec;
@@ -79,8 +78,6 @@ public class AlbumSetSlotRenderer extends AbstractSlotRenderer {
 
         mWaitLoadingTexture = new ColorTexture(mPlaceholderColor);
         mWaitLoadingTexture.setSize(1, 1);
-        mCameraOverlay = new ResourceTexture(activity,
-                R.drawable.ic_cameraalbum_overlay);
     }
 
     public void setPressedIndex(int index) {
@@ -142,12 +139,6 @@ public class AlbumSetSlotRenderer extends AbstractSlotRenderer {
     protected int renderOverlay(
             GLCanvas canvas, int index, AlbumSetEntry entry, int width, int height) {
         int renderRequestFlags = 0;
-        if (entry.album != null && entry.album.isCameraRoll()) {
-            int uncoveredHeight = height - mLabelSpec.labelBackgroundHeight;
-            int dim = uncoveredHeight / 2;
-            mCameraOverlay.draw(canvas, (width - dim) / 2,
-                    (uncoveredHeight - dim) / 2, dim, dim);
-        }
         if (mPressedIndex == index) {
             if (mAnimatePressedUp) {
                 drawPressedUpFrame(canvas, width, height);
