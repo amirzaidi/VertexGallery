@@ -223,17 +223,7 @@ public class GalleryUtils {
     }
 
     public static boolean isAnyCameraAvailable(Context context) {
-        int version = PackagesMonitor.getPackagesVersion(context);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (prefs.getInt(KEY_CAMERA_UPDATE, 0) != version) {
-            PackageManager packageManager = context.getPackageManager();
-            List<ResolveInfo> infos = packageManager.queryIntentActivities(
-                    new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA), 0);
-            prefs.edit().putInt(KEY_CAMERA_UPDATE, version)
-                        .putBoolean(KEY_HAS_CAMERA, !infos.isEmpty())
-                        .commit();
-        }
-        return prefs.getBoolean(KEY_HAS_CAMERA, true);
+        return false;
     }
 
     public static boolean isCameraAvailable(Context context) {
