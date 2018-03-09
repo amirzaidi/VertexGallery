@@ -1,11 +1,15 @@
-# Project files and paths.
-.classpath
-.project
+db_files
 *.iml
-**/*.iml
-.settings/
-bin/
-libs/
+.project
+.classpath
+.project.properties
 gen/
+tests/stress/gen/
+bin/
 .idea/
-project.properties
+.gradle/
+local.properties
+gradle/
+build/
+gradlew*
+.externalNativeBuild/
