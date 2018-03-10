@@ -24,6 +24,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.text.TextPaint;
@@ -60,6 +61,7 @@ public class AlbumLabelMaker {
         mSpec = spec;
         mTitlePaint = getTextPaint(spec.titleFontSize, spec.titleColor, false);
         mCountPaint = getTextPaint(spec.countFontSize, spec.countColor, false);
+        mCountPaint.setTextAlign(Paint.Align.RIGHT);
 
         /*mLocalSetIcon = new LazyLoadedBitmap(R.drawable.frame_overlay_gallery_folder);
         mPicasaIcon = new LazyLoadedBitmap(R.drawable.frame_overlay_gallery_picasa);
@@ -220,13 +222,13 @@ public class AlbumLabelMaker {
                     // TODO: is the offset relevant in new reskin?
                     // int y = s.titleOffset;
                     int y = (s.labelBackgroundHeight - s.titleFontSize) / 2;
-                    drawText(canvas, x, y, title, labelWidth - s.leftMargin - x, mTitlePaint);
+                    drawText(canvas, x, y, title, labelWidth - (int) mCountPaint.measureText(count) - (s.leftMargin + s.titleLeftMargin) * 3, mTitlePaint);
 
                     // draw count
                     if (jc.isCancelled()) return null;
                     x = s.leftMargin + 10;// plus 10 to get a much bigger margin
                     y = (s.labelBackgroundHeight - s.countFontSize) / 2;
-                    drawText(canvas, x, y, count, labelWidth - x, mCountPaint);
+                    drawText(canvas, x, y, count, Integer.MAX_VALUE, mCountPaint);
                 } else {
                     int x = labelWidth
                             - (s1.leftMargin + s1.iconSize)
@@ -247,15 +249,14 @@ public class AlbumLabelMaker {
                     // TODO: is the offset relevant in new reskin?
                     // int y = s.titleOffset;
                     int y = (s.labelBackgroundHeight - s.titleFontSize) / 2;
-                    drawText(canvas, x, y, title, labelWidth - s.leftMargin - x
-                            - s.titleRightMargin - s.countRightMargin, mTitlePaint);
+                    drawText(canvas, x, y, title, labelWidth - (int) mCountPaint.measureText(count) - (s.leftMargin + s.titleLeftMargin) * 3, mTitlePaint);
 
                     // draw count
                     if (jc.isCancelled())
                         return null;
                     x = labelWidth - s.titleRightMargin - s.countRightMargin;
                     y = (s.labelBackgroundHeight - s.countFontSize) / 2;
-                    drawText(canvas, x, y, count, labelWidth - x, mCountPaint);
+                    drawText(canvas, x, y, count, Integer.MAX_VALUE, mCountPaint);
                 } else {
 
                     int x = s1.leftMargin + s1.iconSize;

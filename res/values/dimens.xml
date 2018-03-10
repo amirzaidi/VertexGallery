@@ -120,15 +120,15 @@
     <dimen name="albumset_padding_left">4dp</dimen>
     <dimen name="albumset_padding_right">4dp</dimen>
     <dimen name="albumset_slot_gap">4dp</dimen>
-    <dimen name="albumset_label_background_height">48dp</dimen>
+    <dimen name="albumset_label_background_height">44dp</dimen>
     <dimen name="albumset_title_offset">12dp</dimen>
     <dimen name="albumset_count_offset">18dp</dimen>
-    <dimen name="albumset_title_font_size">16sp</dimen>
-    <dimen name="albumset_count_font_size">16sp</dimen>
+    <dimen name="albumset_title_font_size">15sp</dimen>
+    <dimen name="albumset_count_font_size">15sp</dimen>
     <dimen name="albumset_left_margin">2dp</dimen>
-    <dimen name="albumset_title_right_margin">20dp</dimen>
-    <dimen name="albumset_title_left_margin">12dp</dimen>
-    <dimen name="albumset_count_right_margin">18dp</dimen>
+    <dimen name="albumset_title_right_margin">14dp</dimen>
+    <dimen name="albumset_title_left_margin">14dp</dimen>
+    <dimen name="albumset_count_right_margin">0dp</dimen>
     <dimen name="albumset_icon_size">25dp</dimen>
 
       <!-- configuration for albumset page in Landscape-->
